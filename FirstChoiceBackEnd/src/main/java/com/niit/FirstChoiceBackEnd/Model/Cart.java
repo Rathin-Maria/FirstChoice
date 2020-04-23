@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 public class Cart
 {
@@ -11,9 +12,9 @@ public class Cart
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int cart_Id;
-	@Column(nullable = false)
+	@ManyToOne
 	Customer customer_Details;
-	@Column(nullable = false)
+	@ManyToOne
 	Product product_Details;
 	@Column(nullable = false)
 	int product_Quantity;

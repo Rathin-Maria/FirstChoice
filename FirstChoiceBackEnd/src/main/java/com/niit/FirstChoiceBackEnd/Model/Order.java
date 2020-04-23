@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -15,9 +16,9 @@ public class Order
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	Date order_Date;
-	@Column(nullable = false)
+	@ManyToOne
 	Product product_Details;
-	@Column(nullable = false)
+	@ManyToOne
 	Customer customer_Details;
 	@Column(nullable = false)
 	Address customer_Address;

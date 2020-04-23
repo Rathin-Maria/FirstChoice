@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 public class Address
 {
@@ -21,7 +22,7 @@ public class Address
 	String address_Area;
 	@Column(nullable = false)
     int address_Pincode;
-	@Column(nullable = false)
+	@ManyToOne
 	Customer customer_Details;
 	
 	public int getAddress_Id() {

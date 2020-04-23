@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 public class Product
 {
@@ -19,8 +20,9 @@ public class Product
 	int product_Stock;
 	@Column( nullable = false)
     float product_Price;
-	@Column( nullable = false)
+	@ManyToOne
 	ProductCategory product_Category;
+	
 	public int getProduct_id() {
 		return product_Id;
 	}

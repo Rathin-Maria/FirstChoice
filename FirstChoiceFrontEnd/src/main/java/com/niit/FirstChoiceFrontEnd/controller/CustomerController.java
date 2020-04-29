@@ -29,6 +29,8 @@ public class CustomerController
 		@RequestMapping("/registered")	
 	   String addCategoryPage(@ModelAttribute("customerobject") Customer customer,Model model)
 		  {
+		try
+		{
 			if(customer_dao.addCustomer(customer))
 	        {
 	            model.addAttribute("info",true);
@@ -41,6 +43,15 @@ public class CustomerController
 	          model.addAttribute("message","Invalid Data");
 	          System.out.println("Faliure");
 	        }
+		}
+		
+		catch(Exception e1)
+		{
+			 model.addAttribute("info",true);
+	          model.addAttribute("message","Invalid Data");
+	          System.out.println("Faliure");
+			
+		}
 			
 			   model.addAttribute("registerpage",true);
 			  model.addAttribute("customerobject",new Customer());

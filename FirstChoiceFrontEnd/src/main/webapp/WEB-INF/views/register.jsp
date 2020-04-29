@@ -78,13 +78,12 @@ a {
 
 <div style="width:50%;height:50%;margin-left:25%;">
 
-<c:if test="${info}">
+<form:form action="registered" method="post" modelAttribute="customerobject">
+  <div class="container">
+  <c:if test="${info}">
   <div class="alert alert-success" role="alert">
   ${message}</div>
 </c:if>
-
-<form:form action="registered" method="post" modelAttribute="customerobject">
-  <div class="container">
     <p style="font-size:170%;font-family:algerian;text-align:center;"><ins>Register</ins></p>
     <label for="cust_name"><b  style="font-size:130%;">Name</b></label>
     <form:input type="text" placeholder="Enter Your Name"  id="cust_name"  name="cust_name"  path="customer_Name"/>

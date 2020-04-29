@@ -35,6 +35,9 @@
 <c:if test="${registerpage}">
    <jsp:include page="register.jsp"></jsp:include>
 </c:if>
+<c:if test="${categorypage}">
+   <jsp:include page="category.jsp"></jsp:include>
+</c:if>
 
 </div>
 

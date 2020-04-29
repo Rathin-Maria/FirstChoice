@@ -111,8 +111,8 @@
                    </div> 
   
         <div class="container" style="background-color:#f1f1f1"> 
-            <a  style="float:left;font-size:120%;" href="/FirstChoiceFrontEnd/"><button type="button" class="cancelbtn">Cancel</button> </a>
-           <a  style="float:right;font-size:120%;" href="/FirstChoiceFrontEnd/register"><button type="button" class="registerbtn">Register</button></a>
+            <a  style="float:left;font-size:120%;" href="home"><button type="button" class="cancelbtn">Cancel</button> </a>
+           <a  style="float:right;font-size:120%;" href="register"><button type="button" class="registerbtn">Register</button></a>
         </div> 
     </form> 
   </div>

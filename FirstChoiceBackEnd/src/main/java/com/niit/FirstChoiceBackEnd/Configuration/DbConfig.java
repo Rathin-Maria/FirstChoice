@@ -25,7 +25,7 @@ public class DbConfig
 	   {
 	  BasicDataSource basicDataSource = new BasicDataSource();
 	  basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	  basicDataSource.setUrl("jdbc:mysql://localhost:3306/fc_customer");
+	  basicDataSource.setUrl("jdbc:mysql://localhost:3306/firstchoice");
 	  basicDataSource.setUsername("root");
 	  basicDataSource.setPassword("");
 	  return basicDataSource;

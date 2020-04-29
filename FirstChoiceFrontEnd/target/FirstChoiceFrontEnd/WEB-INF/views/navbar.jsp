@@ -39,17 +39,17 @@
 	<div class="theader">
 		<table>
 			<tr>
-			    <th><a href="/FirstChoiceFrontEnd/" target="_self">Home</a></th>
-				<th><a href="/FirstChoiceFrontEnd/aboutus" target="_self">About Us</a></th>
-				<th><a href="/FirstChoiceFrontEnd/contactus" target="_self">Contact Us</a></th>
-				<th><a href="/FirstChoiceFrontEnd/register"target="_self" >Register</a></th>
-				<th><a href="/FirstChoiceFrontEnd/login" target="_self">Login</a></th>
+			    <th><a href="home"target="_self">Home</a></th>
+				<th><a href="aboutus" target="_self">About Us</a></th>
+				<th><a href="contactus" target="_self">Contact Us</a></th>
+				<th><a href="register"  target="_self" >Register</a></th>
+				<th><a href="login" target="_self">Login</a></th>
 			</tr>
 		</table>
 	</div>
 
 	<p style="margin-top:3px;white-space:nowrap;margin-bottom:0px;width:100%;font-family:algerian;font-size:75px;color:green;text-align:center;">
-    <img src="img/logo.png" alt="Smiley face" style="float:center;width:70px;height:65px;"><i>First Choice Retails</i></p>
+    <img src="img/logo.png" alt="LOGO" style="float:center;width:70px;height:65px;"><i>First Choice Retails</i></p>
 	
 
 </body>

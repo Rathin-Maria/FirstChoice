@@ -1,11 +1,13 @@
 package com.niit.FirstChoiceBackEnd.Model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Address
 {
 
@@ -24,7 +26,6 @@ public class Address
     int address_Pincode;
 	@ManyToOne
 	Customer customer_Details;
-	
 	public int getAddress_Id() {
 		return address_Id;
 	}
@@ -61,12 +62,13 @@ public class Address
 	public void setAddress_Pincode(int address_Pincode) {
 		this.address_Pincode = address_Pincode;
 	}
-	public Customer getCustomer_details() {
+	public Customer getCustomer_Details() {
 		return customer_Details;
 	}
-	public void setCustomer_details(Customer customer_details) {
-		this.customer_Details = customer_details;
+	public void setCustomer_Details(Customer customer_Details) {
+		this.customer_Details = customer_Details;
 	}
 	
+
 	
 }

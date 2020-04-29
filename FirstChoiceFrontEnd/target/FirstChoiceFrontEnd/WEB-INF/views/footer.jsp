@@ -38,9 +38,9 @@
 <div class="footer">
   <table>
   <tr>
-  <th><a href="/FirstChoiceFrontEnd/aboutus" target="_self">About Us</a></th>
-  <th><a href="/FirstChoiceFrontEnd/register" target="_self">Join Us</a></th>
-  <th><a href="/FirstChoiceFrontEnd/contactus" target="_self">Contact Us</a></th>
+  <th><a href="aboutus" target="_self">About Us</a></th>
+  <th><a href="register" target="_self">Join Us</a></th>
+  <th><a href="contactus" target="_self">Contact Us</a></th>
   </tr>
   <tr style="background-color:rgb(63,68,69);font-size:8px;">
   <td></td>

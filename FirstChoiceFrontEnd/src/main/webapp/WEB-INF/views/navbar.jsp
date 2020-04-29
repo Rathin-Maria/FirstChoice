@@ -49,7 +49,7 @@
 	</div>
 
 	<p style="margin-top:3px;white-space:nowrap;margin-bottom:0px;width:100%;font-family:algerian;font-size:75px;color:green;text-align:center;">
-    <img src="img/logo.png" alt="Smiley face" style="float:center;width:70px;height:65px;"><i>First Choice Retails</i></p>
+    <img src="img/logo.png" alt="LOGO" style="float:center;width:70px;height:65px;"><i>First Choice Retails</i></p>
 	
 
 </body>

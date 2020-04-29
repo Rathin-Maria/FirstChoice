@@ -1,8 +1,9 @@
 package com.niit.FirstChoiceFrontEnd.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller; 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 public class HomeController 
@@ -12,7 +13,7 @@ public class HomeController
 	  String IndexPage(Model model)
 	  {
 	    model.addAttribute("indexpage",true);
-	    model.addAttribute("tittle","OurWeb--Home");
+	    model.addAttribute("tittle","FirstChoice--Home");
 	    return "index";
 	  }
 
@@ -21,7 +22,7 @@ public class HomeController
 	  String AboutusPage(Model model)
 	  {
 	    model.addAttribute("aboutuspage",true);
-	    model.addAttribute("tittle","OurWeb--Aboutus");
+	    model.addAttribute("tittle","FirstChoice--Aboutus");
 	    return "index";
 	  }
 
@@ -30,7 +31,7 @@ public class HomeController
 	  String ContactusPage(Model model)
 	  {
 	    model.addAttribute("contactuspage",true);
-	    model.addAttribute("tittle","OurWeb--contactus");
+	    model.addAttribute("tittle","FirstChoice--contactus");
 	    return "index";
 	  }
 	@RequestMapping("/login")
@@ -38,16 +39,9 @@ public class HomeController
 	  String LoginPage(Model model)
 	  {
 	    model.addAttribute("loginpage",true);
-	    model.addAttribute("tittle","OurWeb--login");
+	    model.addAttribute("tittle","FirstChoice--login");
 	    return "index";
 	  }
 
-	@RequestMapping("/register")
-
-	  String RegisterPage(Model model)
-	  {
-	    model.addAttribute("registerpage",true);
-	    model.addAttribute("tittle","OurWeb--register");
-	    return "index";
-	  }
+	
 }

@@ -100,7 +100,7 @@ a {
     <button type="submit"  class="registerbtn" style="font-size:130%;">Register</button>
   
   <div class="container signin">
-    <p style="font-size:110%;">Already have an account? <a style="font-size:110%;color:blue;" href="/FirstChoiceFrontEnd/login">Sign in</a>.</p>
+    <p style="font-size:110%;">Already have an account? <a style="font-size:110%;color:blue;" href="login">Sign in</a>.</p>
   </div>
 </div>
 </form>

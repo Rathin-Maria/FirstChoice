@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>   
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,26 +77,27 @@ a {
 <body>
 
 <div style="width:50%;height:50%;margin-left:25%;">
+
 <c:if test="${info}">
   <div class="alert alert-success" role="alert">
   ${message}</div>
 </c:if>
 
-<form action="register" method="post">
+<form:form action="registered" method="post" modelAttribute="customerobject">
   <div class="container">
     <p style="font-size:170%;font-family:algerian;text-align:center;"><ins>Register</ins></p>
     <label for="cust_name"><b  style="font-size:130%;">Name</b></label>
-    <input type="text" placeholder="Enter Your Name"  id="cust_name"  name="cust_name" required>
+    <form:input type="text" placeholder="Enter Your Name"  id="cust_name"  name="cust_name"  path="customer_Name"/>
 	
 	
     <label for="cust_email"><b  style="font-size:130%;">Email Id</b></label>
-    <input type="email" placeholder="Enter Email"  id="cust_email" name="cust_email" required>
+    <form:input type="email" placeholder="Enter Email"  id="cust_email" name="cust_email"  path="customer_Email"/>
       
 	<label for="cust_no"><b  style="font-size:130%;">Contact Number</b></label>
-	<input type="tel" placeholder="Enter Your Contact Number" pattern="[0-9]{10}"  name="cust_no" required>
+	<form:input type="tel" placeholder="Enter Your Contact Number" pattern="[0-9]{10}"  name="cust_no"  path="customer_PhoneNo"/>
 	
     <label for="cust_password"><b style="font-size:130%;">Password</b></label>
-    <input type="password" placeholder="Enter Password"  id="cust_password" name="cust_password" required>
+    <form:input type="password" placeholder="Enter Password"  id="cust_password" name="cust_password"  path="customer_Password"/>
 
     <button type="submit"  class="registerbtn" style="font-size:130%;">Register</button>
   
@@ -103,7 +105,7 @@ a {
     <p style="font-size:110%;">Already have an account? <a style="font-size:110%;color:blue;" href="login">Sign in</a>.</p>
   </div>
 </div>
-</form>
+</form:form>
 </div>
 </body>
 </html>

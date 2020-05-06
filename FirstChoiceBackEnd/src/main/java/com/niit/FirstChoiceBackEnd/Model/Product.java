@@ -1,14 +1,16 @@
 package com.niit.FirstChoiceBackEnd.Model;
 
-import javax.persistence.Column; 
+import javax.persistence.Column;  
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
  
 @Entity
 public class Product
@@ -29,6 +31,18 @@ public class Product
 	float product_Price;
 	@ManyToOne
 	ProductCategory product_Category;
+	
+	@Transient
+	MultipartFile product_Image;
+	
+	
+	
+	public MultipartFile getProduct_Image() {
+		return product_Image;
+	}
+	public void setProduct_Image(MultipartFile product_Image) {
+		this.product_Image = product_Image;
+	}
 	public int getProduct_Id() {
 		return product_Id;
 	}

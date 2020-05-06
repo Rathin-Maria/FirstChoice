@@ -17,14 +17,23 @@
 
 	<context:component-scan base-package="com.niit">
 	</context:component-scan>
-	
+
 
 	<bean id="internalResourceViewResolver" name="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/" /> 
-     	<property name="suffix" value=".jsp"/>		
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 
-<mvc:resources location="/resources/images/" mapping="/img/*"/>
+
+	<bean id="multipartResolver" name="imageResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+
+	<mvc:resources location="/resources/productimages/"
+		mapping="/pimg/*" />
+	<mvc:resources location="/resources/images/"
+		mapping="/img/*" />
 
 </beans>

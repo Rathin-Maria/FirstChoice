@@ -103,6 +103,7 @@ a {
 				<table class="tabledisplay">
 					<thead class="dark-row">
 						<tr class="movie-table-head">
+						  <th class="tabledisplay">Product Image</th>
 							<th class="tabledisplay">Product Name</th>
 							<th class="tabledisplay">Product Description</th>
 							<th class="tabledisplay">Stock</th>
@@ -114,6 +115,7 @@ a {
 					<tbody>
 						<c:forEach items="${productlist}" var="p">
 							<tr>
+							    <td class="tabledisplay"><img src="pimg/${p.product_Id}.jpeg" height="50px" ></td>
 								<td class="tabledisplay">${p.product_Name}</td>
 	                            <td class="tabledisplay">${p. product_Description}</td>
 	                            <td class="tabledisplay">${p.product_Stock}</td>
@@ -138,7 +140,7 @@ a {
          <c:set var="url"  value="addproducts"/>
   </c:if>
   
-<form:form action="${url} " method="post" modelAttribute="productobject">
+<form:form action="${url} " method="post" modelAttribute="productobject" enctype="multipart/form-data">
  
   
   <c:if test="${success}">
@@ -187,6 +189,8 @@ a {
      </c:forEach>
     </form:select>
     
+       <form:input  type="file" path="product_Image"/>
+       
        <button type="submit"  class="registerbtn" style="font-size:100%;">Submit</button>
 
 </form:form>

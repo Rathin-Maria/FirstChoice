@@ -1,11 +1,15 @@
 package com.niit.FirstChoiceBackEnd.Model;
 
-import javax.persistence.Column; 
+import javax.persistence.Column;  
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Customer 
@@ -14,14 +18,22 @@ public class Customer
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int customer_Id;
+	
 	@Column(nullable = false)
+	@NotBlank(message = "Name cannot be Blank")
 	String customer_Name;
+	
 	@Column(nullable = false, unique = true)
+	@Email( message="Email Format must be aaaa@gg.com")
 	String customer_Email;
+	
 	@Column(nullable = false, unique = true)
+	@Pattern(regexp = "^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[6-9]\\d{9}$", message="Mobile no. must be of Indian Standards {+91}-9000000001")
 	String customer_PhoneNo;
+	
 	@Transient
 	@Column(nullable=false)
+	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W)[a-zA-Z0-9\\S]{7,}$", message="Password must atleast contain one special character,uppercase,lowercase and numbers")
 	String  customer_Password;
 	
 	public int getCustomer_Id() {

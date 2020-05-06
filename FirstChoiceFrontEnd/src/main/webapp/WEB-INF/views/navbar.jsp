@@ -44,6 +44,8 @@
 				<th><a href="contactus" target="_self">Contact Us</a></th>
 				<th><a href="register"  target="_self" >Register</a></th>
 				<th><a href="login" target="_self">Login</a></th>
+				<th><a href="category" target="_self">Category</a></th>
+				<th><a href="products" target="_self">Products</a></th>
 			</tr>
 		</table>
 	</div>

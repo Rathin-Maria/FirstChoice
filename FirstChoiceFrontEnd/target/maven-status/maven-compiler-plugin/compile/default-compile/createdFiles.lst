@@ -1,2 +1,4 @@
 com\niit\FirstChoiceFrontEnd\controller\CategoryController.class
 com\niit\FirstChoiceFrontEnd\controller\HomeController.class
+com\niit\FirstChoiceFrontEnd\controller\CustomerController.class
+com\niit\FirstChoiceFrontEnd\controller\ProductController.class

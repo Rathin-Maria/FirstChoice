@@ -1,8 +1,11 @@
 package com.niit.FirstChoiceFrontEnd.controller;
 
+import javax.validation.Valid; 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.niit.FirstChoiceBackEnd.DAO.ICustomerDAO;
@@ -16,47 +19,66 @@ public class CustomerController
 	ICustomerDAO customer_dao;
 	
 	
+
 		@RequestMapping("/register")
 
-		  String RegisterPage(Model model)
+		String RegisterPage(Model model)
 		  {
-			  model.addAttribute("registerpage",true);
+			 model.addAttribute("registerpage",true);
 			  model.addAttribute("customerobject",new Customer());
 			  model.addAttribute("tittle","FirstChoice--register");
-		       return "index";
+		      return "index";
 		  }
 		
 		@RequestMapping("/registered")	
-	   String addCategoryPage(@ModelAttribute("customerobject") Customer customer,Model model)
+	   String Registered(@Valid @ModelAttribute("customerobject")Customer customer,BindingResult br,Model model)
 		  {
 		try
 		{
-			if(customer_dao.addCustomer(customer))
-	        {
-	            model.addAttribute("info",true);
-	            model.addAttribute("message","Sucessfully Registered"); 
-	            System.out.println("Done");
-	        }
-	        else
-	        {
-	          model.addAttribute("info",true);
-	          model.addAttribute("message","Invalid Data");
-	          System.out.println("Faliure");
-	        }
-		}
-		
-		catch(Exception e1)
+		    	 if(br.hasErrors())
+		    	 {
+		    		
+		 			model.addAttribute("customerobject", customer);
+		 			model.addAttribute("error1",true);	
+		 			model.addAttribute("success",false);
+		 			model.addAttribute("error2",false);
+		 			System.out.println("Errrrorrrr");
+		 			
+		    	 }
+		    	 else
+		    	 {
+			       if(customer_dao.addCustomer(customer))
+	                {
+			    	  
+						model.addAttribute("customerobject",new Customer());
+						model.addAttribute("error1",false);	
+						model.addAttribute("success", true);
+						model.addAttribute("error2",false);
+	                 }
+	              else
+	                {
+	            	
+	            	  model.addAttribute("customerobject", customer);
+	  			   	model.addAttribute("error1",false);
+	  				model.addAttribute("error2",true);	
+	  				model.addAttribute("success",false);
+	                 }
+		    	 }
+		      }
+		   catch(Exception e)
 		{
-			 model.addAttribute("info",true);
-	          model.addAttribute("message","Invalid Data");
-	          System.out.println("Faliure");
-			
+	
+			   model.addAttribute("customerobject", customer);
+			   	model.addAttribute("error1",false);
+				model.addAttribute("error2",true);	
+				model.addAttribute("success",false);
+			   
 		}
 			
-			   model.addAttribute("registerpage",true);
-			  model.addAttribute("customerobject",new Customer());
-			  model.addAttribute("tittle","FirstChoice--register");
-		       return "index";
+		    model.addAttribute("registerpage",true);
+		    model.addAttribute("customerobject", customer);
+		    model.addAttribute("tittle","FirstChoice--category");
+		    return "index";
 		  }
-		
+      	
 }

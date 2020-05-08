@@ -44,8 +44,9 @@
 				<th><a href="contactus" target="_self">Contact Us</a></th>
 				<th><a href="register"  target="_self" >Register</a></th>
 				<th><a href="login" target="_self">Login</a></th>
-				<th><a href="category" target="_self">Category</a></th>
-				<th><a href="products" target="_self">Products</a></th>
+				<th><a href="allproducts" target="_self">All Products</a></th>
+				<th><a href="category" target="_self">Manage Category</a></th>
+				<th><a href="products" target="_self">Manage Products</a></th>
 			</tr>
 		</table>
 	</div>

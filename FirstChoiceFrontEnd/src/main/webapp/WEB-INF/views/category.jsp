@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>   
    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+   <c:set var="cr" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,7 +113,8 @@ a {
 							<tr>
 								
 								<td  class="tabledisplay">${c.category_Name}</td>
-								                <td   class="tabledisplay" class="text-center"><a class='btn btn-info btn-xs' href="getcategorytoedit?catname=${c.category_Name}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="deletecategory?catname=${c.category_Name}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+								                <td   class="tabledisplay" class="text-center"><a class='btn btn-info btn-xs' href="${cr }/admin/getcategorytoedit?catname=${c.category_Name}"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+								                <a href="${cr }/admin/deletecategory?catname=${c.category_Name}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
 
 							</tr>
 						</c:forEach>
@@ -142,10 +144,10 @@ a {
 	</c:if>
 <!-- we need to make this form a spring form to do this we will add the tag lib of my spring form -->
 <c:if test="${edit}">
-         <c:set var="url"  value="updatecategory"/>
+         <c:set var="url"  value="${cr }/admin/updatecategory"/>
   </c:if>
  <c:if test="${!edit}">
-         <c:set var="url"  value="addcategory"/>
+         <c:set var="url"  value="${cr }/admin/addcategory"/>
   </c:if>
 <form:form action="${url} " method="post" modelAttribute="categoryobject">
  

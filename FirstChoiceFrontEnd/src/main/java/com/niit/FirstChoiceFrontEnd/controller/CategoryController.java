@@ -15,6 +15,7 @@ import com.niit.FirstChoiceBackEnd.DAO.ICategoryDAO;
 import com.niit.FirstChoiceBackEnd.Model.ProductCategory;
 
 @Controller
+@RequestMapping("/admin")
 public class CategoryController 
 {
 

@@ -43,8 +43,21 @@ public class HomeController
 	  }
 	@RequestMapping("/login")
 
-	  String LoginPage(Model model)
+	  String LoginPage(@RequestParam(value = "error", required=false ) boolean error , Model model)
 	  {
+		if(error)
+		{
+			model.addAttribute("error1",true);	
+ 			model.addAttribute("success",false);
+ 			model.addAttribute("error2",false);
+ 			model.addAttribute("message","Email or Password Incorrect");
+		}
+		else
+		{
+			model.addAttribute("error1",false);	
+ 			model.addAttribute("success",false);
+ 			model.addAttribute("error2",false);
+		}
 	    model.addAttribute("loginpage",true);
 	    model.addAttribute("tittle","FirstChoice--login");
 	    return "index";

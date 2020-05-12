@@ -21,6 +21,7 @@ import com.niit.FirstChoiceBackEnd.Model.Product;
  
 
 @Controller
+@RequestMapping("/admin")
 public class ProductController 
 {
 

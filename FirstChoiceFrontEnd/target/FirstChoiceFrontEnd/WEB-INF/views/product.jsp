@@ -11,32 +11,54 @@
 body {
   font-family: Calibri;
   background-color: white;
-  
+  margin-bottom: 3%;
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
+div.box
+{
+  width: 64%;
+  height: 470px;
+ float: right;
+ margin-right: 2%;
+  overflow: auto;
+ 
 }
 
+/* Add padding to containers */
+.container {
+  padding: 10px;
+ background-color: white;
+width:30%;
+margin-left: 2%;
+overflow: auto;
+height: 470px;
+border: 2px solid green;
+}
+
+.tabledisplay
+{
+border: 2px solid green;
+border-collapse: collapse;
+text-align: center;
+padding: 5px;
+}
 /* Full-width input fields */
-input[type=text], input[type=number],textarea
+input[type=text], input[type=number],textarea,select
  {
   width: 100%;
-  padding: 5px;
-  margin: 5px 0 22px 0;
+  padding: 2px;
+  margin: 2px 0 8px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
-  font-size: 100%;
+  font-size: 90%;
 }
 
-input[type=text]:focus, input[type=number]:focus, textarea:focus {
+input[type=text]:focus, input[type=number]:focus, textarea:focus, select:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -51,8 +73,8 @@ hr {
 .registerbtn {
   background-color: #4CAF50;
   color: white;
-  padding: 6px 12px;
-  margin: 8px 0;
+  padding: 3px 6px;
+  margin: 2px 0;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -76,80 +98,103 @@ a {
 </style>
 </head>
 <body>
-
-<div style="width:50%;height:50%;margin-left:25%;">
-
-<form:form action="addproducts" method="post" modelAttribute="productobject">
-  <div class="container">
-  <c:if test="${success}">
-		<div class="alert alert-success">
-			<strong>Success!</strong>Data Inserted.
-		</div>
-	</c:if>
-	<c:if test="${error1}">
-		<div class="alert alert-danger">
-			<strong>Error!</strong>Incorrect Data.
-		</div>
-	</c:if>
-	
-	<c:if test="${error2}">
-		<div class="alert alert-warning">
-			<strong>Warning!</strong>Data Already Exists.
-		</div>
-	</c:if>
-	
-    <p style="font-size:170%;font-family:algerian;text-align:center;"><ins>ProductPage</ins></p>
+<div class="box">
     
-    <label for="product_name"><b  style="font-size:130%;">Product Name</b></label>
-    <form:input type="text" placeholder="Enter Your Name"  id="product_name"  name="product_name"  path="product_Name"/>
-     <form:errors path="product_Name" cssStyle="color:Red"></form:errors><br>
-	
-	
-    <label for="product_description"><b  style="font-size:130%;">Description</b></label>
-     <form:textarea style="font-size:110%;height:120px;" id="product_description" name="product_description"   placeholder="Write Something..." path="product_Description"/>
-     <form:errors path="product_Description" cssStyle="color:Red"></form:errors><br>
-     
-	<label for="product_stock"><b  style="font-size:130%;">Stock</b></label>
-	<form:input type="number" placeholder="Enter the Stock"  name="product_stock"  path="product_Stock"/>
-	<form:errors path="product_Stock" cssStyle="color:Red"></form:errors><br>
-	
-    <label for="product_price"><b style="font-size:130%;">Price</b></label>
-    <form:input type="number" step="any"  placeholder="Enter Price"  id="product_price" name="product_price"  path="product_Price"/>
-    <form:errors path="product_Price" cssStyle="color:Red"></form:errors><br>
-    
-    
-     
-      <button type="submit"  class="registerbtn" style="font-size:130%;">Submit</button><br><br><br><br>
-      
-  <form:form  method="get" modelAttribute="categoryobject">
-    <br>
-    <div class="row" style="margin-bottom: 3%;">
-			<div class="table-responsive table-bordered movie-table">
-				<table class="table movie-table">
+				<table class="tabledisplay">
 					<thead class="dark-row">
 						<tr class="movie-table-head">
-							<th>Category Id</th>
-							<th>Category Name</th>
-							<th>Edit/Delete</th>
+						  <th class="tabledisplay">Product Image</th>
+							<th class="tabledisplay">Product Name</th>
+							<th class="tabledisplay">Product Description</th>
+							<th class="tabledisplay">Stock</th>
+							<th class="tabledisplay">Price</th>
+							<th class="tabledisplay">Category</th>
+							<th class="tabledisplay" style="width:150px">Edit/Delete</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${catlist}" var="c">
+						<c:forEach items="${productlist}" var="p">
 							<tr>
-								<td>${c.category_Id}</td>
-								<td>${c.category_Name}</td>
-								                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+							    <td class="tabledisplay"><img src="pimg/${p.product_Id}.jpeg" height="50px" ></td>
+								<td class="tabledisplay">${p.product_Name}</td>
+	                            <td class="tabledisplay">${p. product_Description}</td>
+	                            <td class="tabledisplay">${p.product_Stock}</td>
+	                            <td class="tabledisplay">${p.product_Price}</td>
+								<td class="tabledisplay">${p.product_Category.category_Name}</td>
+								                <td  class="tabledisplay" class="text-center"><a class='btn btn-info btn-xs' href="getproductstoedit?productid=${p.product_Id}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="deleteproducts?productid=${p.product_Id}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
 
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
+	
 		</div>
+
+
+
+ <div class="container">
+<c:if test="${edit}">
+         <c:set var="url"  value="updateproducts"/>
+  </c:if>
+ <c:if test="${!edit}">
+         <c:set var="url"  value="addproducts"/>
+  </c:if>
+  
+<form:form action="${url} " method="post" modelAttribute="productobject" enctype="multipart/form-data">
+ 
+  
+  <c:if test="${success}">
+		<div class="alert alert-success">
+			<strong>Success!</strong>${message}
+		</div>
+	</c:if>
+	<c:if test="${error1}">
+		<div class="alert alert-danger">
+			<strong>Error!</strong>${message}
+		</div>
+	</c:if>
+	
+	<c:if test="${error2}">
+		<div class="alert alert-warning">
+			<strong>Warning!</strong>${message}
+		</div>
+	</c:if>
+	
+      <p style="font-size:110%;font-family:algerian;text-align:center;"><ins>Products</ins></p>
+    <c:if test="${edit}">
+		       <form:hidden  id="product_id" placeholder="Product Id" name="product_id" path="product_Id"/>       
+	</c:if>
+	
+    <label for="product_name"><b  style="font-size:100%;">Product Name</b></label>
+    <form:input type="text" placeholder="Enter Your Name"  id="product_name"  name="product_name"  path="product_Name"/>
+     <form:errors path="product_Name" cssStyle="color:Red"></form:errors><br>
+	
+	
+    <label for="product_description"><b  style="font-size:100%;">Description</b></label>
+     <form:textarea style="font-size:90%;height:50px;" id="product_description" name="product_description"   placeholder="Write Something..." path="product_Description"/>
+     <form:errors path="product_Description" cssStyle="color:Red"></form:errors><br>
+     
+	<label for="product_stock"><b  style="font-size:100%;">Stock</b></label>
+	<form:input type="number" placeholder="Enter the Stock"  name="product_stock"  path="product_Stock"/>
+	<form:errors path="product_Stock" cssStyle="color:Red"></form:errors><br>
+	
+    <label for="product_price"><b style="font-size:100%;">Price</b></label>
+    <form:input type="number" step="any"  placeholder="Enter Price"  id="product_price" name="product_price"  path="product_Price"/>
+    <form:errors path="product_Price" cssStyle="color:Red"></form:errors><br>
+      
+      <label for="category_name"><b  style="font-size:100%;">Category  Name</b></label><br>
+    <form:select   id="category_name"  name="category_name" path="product_Category.category_Id">
+     <c:forEach items="${catlist}" var="c">
+    <option value="${c.category_Id}">${c.category_Name}</option>
+     </c:forEach>
+    </form:select>
+    
+       <form:input  type="file" path="product_Image"/>
+       
+       <button type="submit"  class="registerbtn" style="font-size:100%;">Submit</button>
+
 </form:form>
 </div>
-</form:form>
-
 
 </body>
 </html>

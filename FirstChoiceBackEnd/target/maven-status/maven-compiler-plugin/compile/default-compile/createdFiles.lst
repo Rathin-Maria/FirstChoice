@@ -1,4 +1,5 @@
 com\niit\FirstChoiceBackEnd\DAO\ICartDAO.class
+com\niit\FirstChoiceBackEnd\Model\CustomerOrders.class
 com\niit\FirstChoiceBackEnd\DAO\IOrderDAO.class
 com\niit\FirstChoiceBackEnd\Model\Customer.class
 com\niit\FirstChoiceBackEnd\Model\CustomerCredentials.class
@@ -18,4 +19,3 @@ com\niit\FirstChoiceBackEnd\DAO\ICategoryDAO.class
 com\niit\FirstChoiceBackEnd\DAO\CustomerDAOImpl.class
 com\niit\FirstChoiceBackEnd\Model\Product.class
 com\niit\FirstChoiceBackEnd\DAO\IAddressDAO.class
-com\niit\FirstChoiceBackEnd\Model\Order.class

@@ -1,5 +1,4 @@
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\DAO\ICustomerDAO.java
-D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\Model\Order.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\DAO\IProductDAO.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\DAO\CategoryDAOImpl.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\DAO\CartDAOImpl.java
@@ -14,6 +13,7 @@ D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\M
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\Model\Product.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\DAO\CustomerDAOImpl.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\DAO\ICartDAO.java
+D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\Model\CustomerOrders.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\Model\ProductCategory.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\Model\CustomerCredentials.java
 D:\niit-combatore\FirstChoiceBackEnd\src\main\java\com\niit\FirstChoiceBackEnd\Configuration\DbConfig.java

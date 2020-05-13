@@ -41,28 +41,7 @@ public class HomeController
 	    model.addAttribute("tittle","FirstChoice--contactus");
 	    return "index";
 	  }
-	@RequestMapping("/login")
-
-	  String LoginPage(@RequestParam(value = "error", required=false ) boolean error , Model model)
-	  {
-		if(error)
-		{
-			model.addAttribute("error1",true);	
- 			model.addAttribute("success",false);
- 			model.addAttribute("error2",false);
- 			model.addAttribute("message","Email or Password Incorrect");
-		}
-		else
-		{
-			model.addAttribute("error1",false);	
- 			model.addAttribute("success",false);
- 			model.addAttribute("error2",false);
-		}
-	    model.addAttribute("loginpage",true);
-	    model.addAttribute("tittle","FirstChoice--login");
-	    return "index";
-	  }
-
+	
 	@RequestMapping("/allproducts")
 
 	  String allProductPage(Model model)

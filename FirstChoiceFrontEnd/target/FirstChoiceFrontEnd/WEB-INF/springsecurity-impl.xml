@@ -14,7 +14,10 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 		manager -->
 	<security:http auto-config="true">
 	
-		<security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+				<security:intercept-url pattern="/customer/**" access="hasRole('ROLE_CUSTOMER')" />
+		
+		<security:intercept-url pattern="/**" access="permitAll" />
 		<!-- pattern say the url type to  restrict
 		access say for whome should i restrict -->
 	
@@ -23,17 +26,19 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 			 -->
 		<!-- <security:http-basic/> will also generate a form but 
 		this will be a pop up form -->
-		<security:form-login />
+		<security:form-login login-page="/login" username-parameter="user_name" password-parameter="user_password"  login-processing-url="/perform_login" 
+		 default-target-url="/" authentication-failure-forward-url="/login?error=true"/>
 		<!-- this line will call the login form given by spring/userdefined form
 		this come as a seperate html page -->
+		<security:csrf disabled="true"/>
 	</security:http>
 	
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="mythreye" password="india"
+				<security:user name="admin" password="admin"
 					authorities="ROLE_ADMIN" />
-				<security:user name="sangeetha" password="niit"
+				<security:user name="cust" password="cust"
 					authorities="ROLE_CUSTOMER" />
 			</security:user-service>
 		</security:authentication-provider>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html> 
 <head>
@@ -94,7 +95,23 @@
  <div style="width:30%;height:30%;margin-left:35%;margin-bottom:7%;"> 
    <p style="font-size:170%;font-family:algerian;text-align:center;"><ins>Login Details</ins></p> 
     <!--Step 1 : Adding HTML-->
-    <form action="/action_page.php"> 
+    <form action="perform_login" method="post"> 
+    <c:if test="${success}">
+		<div class="alert alert-success">
+			<strong>Success!</strong>${message}
+		</div>
+	</c:if>
+	<c:if test="${error1}">
+		<div class="alert alert-danger">
+			<strong>Error!</strong>${message}
+		</div>
+	</c:if>
+	
+	<c:if test="${error2}">
+		<div class="alert alert-warning">
+			<strong>Warning!</strong>${message}
+		</div>
+	</c:if>
         <div class="imgcontainer"> 
             <img style="width:200px;height:190px;" src= "img/User.jpg" 
                  alt="Avatar" class="avatar"> 
@@ -102,10 +119,10 @@
   
         <div class="container"> 
             <label style="font-size:120%;"><b>Username</b></label> 
-            <input type="text" placeholder="Enter Username" name="uname" required> 
+            <input type="text" id="password"  placeholder="Enter Username" name="user_name" required> 
   
             <label  style="font-size:120%;"><b>Password</b></label> 
-            <input type="password" placeholder="Enter Password" name="psw" required> 
+            <input type="password"  id="user_password" placeholder="Enter Password" name="user_password" required> 
   
             <button type="submit"  style="font-size:120%;">Login</button> 
                    </div> 

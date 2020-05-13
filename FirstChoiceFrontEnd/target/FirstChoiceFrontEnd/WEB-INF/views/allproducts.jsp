@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,7 @@ font-style: oblique;
 			<c:forEach items="${productlist}" var="p">
 				<div class="col-3">
 					<div class="card">
-						<img src="pimg/${p.product_Id}.jpeg" class="card-img-top" />
+						<img src="${cr }/pimg/${p.product_Id}.jpeg" class="card-img-top" />
 						<div class="card-body">
 							<div class="col-12">
 								<p class="card-title" data-toggle="tooltip"
@@ -77,7 +78,7 @@ font-style: oblique;
 									<a href="" class="btn btn-success">Add to cart</a>
 								</div>
 								<div class="col-6">
-									<a href="productdetails?productid=${p.product_Id}" class="btn btn-warning">View Details</a>
+									<a href="${cr }/productdetails?productid=${p.product_Id}" class="btn btn-warning">View Details</a>
 								</div>
 							</div>
 						</div>

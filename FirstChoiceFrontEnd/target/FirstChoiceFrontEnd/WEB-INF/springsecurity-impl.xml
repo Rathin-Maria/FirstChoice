@@ -27,9 +27,10 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 		<!-- <security:http-basic/> will also generate a form but 
 		this will be a pop up form -->
 		<security:form-login login-page="/login" username-parameter="user_name" password-parameter="user_password"  login-processing-url="/perform_login" 
-		 default-target-url="/" authentication-failure-forward-url="/login?error=true"/>
+		 default-target-url="/" authentication-failure-forward-url="/login?error=true" authentication-success-forward-url="/loginsuccess"/>
 		<!-- this line will call the login form given by spring/userdefined form
 		this come as a seperate html page -->
+		<security:logout invalidate-session="true" logout-url="/logout"/>
 		<security:csrf disabled="true"/>
 	</security:http>
 	
@@ -38,9 +39,11 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 			<security:user-service>
 				<security:user name="admin" password="admin"
 					authorities="ROLE_ADMIN" />
-				<security:user name="cust" password="cust"
-					authorities="ROLE_CUSTOMER" />
 			</security:user-service>
+			<security:jdbc-user-service data-source-ref="myDataSource"
+			users-by-username-query="select customer_Email, customer_Password, customer_Status from CustomerCredentials where customer_Email=?"
+			authorities-by-username-query="select customer_Email, customer_Role from CustomerCredentials where customer_Email=?"/>
+			
 		</security:authentication-provider>
 	</security:authentication-manager>
 </beans>

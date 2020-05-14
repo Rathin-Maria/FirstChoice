@@ -25,7 +25,7 @@ body {
 }
 
 /* Full-width input fields */
-input[type=text]
+input[type=text],  input[type=password]
  {
   width: 100%;
   padding: 5px;
@@ -36,7 +36,7 @@ input[type=text]
   font-size: 100%;
 }
 
-input[type=text]:focus {
+input[type=text]:focus,  input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -114,7 +114,7 @@ a {
 	<form:errors path="customer_PhoneNo" cssStyle="color:Red"></form:errors><br>
 	
     <label for="cust_password"><b style="font-size:130%;">Password</b></label>
-    <form:input type="text" placeholder="Enter Password"  id="cust_password" name="cust_password"  path="customer_Password"/>
+    <form:input type="password" placeholder="Enter Password"  id="cust_password" name="cust_password"  path="customer_Password"/>
     <form:errors path="customer_Password" cssStyle="color:Red"></form:errors><br>
     
     <button type="submit"  class="registerbtn" style="font-size:130%;">Register</button>

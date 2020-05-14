@@ -3,7 +3,6 @@ package com.niit.FirstChoiceBackEnd.Model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
 @Entity
 public class CustomerCredentials 
@@ -12,7 +11,6 @@ public class CustomerCredentials
 	@Id
 	@Column(nullable = false, unique = true)
 	String customer_Email;
-	@Transient
 	@Column(nullable=false)
 	String  customer_Password;
 	@Column(nullable = false)

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.FirstChoiceBackEnd.Model.Customer;
+import com.niit.FirstChoiceBackEnd.Model.CustomerCredentials;
 
 @Repository("customer_dao") 
 @Transactional 
@@ -20,6 +21,12 @@ public class CustomerDAOImpl  implements ICustomerDAO
 	       try
 	       {
 	        sessionFactory.getCurrentSession().save(customer);
+	        CustomerCredentials credential = new CustomerCredentials();
+	        credential.setCustomer_email(customer.getCustomer_Email());
+	        credential.setCustomer_password(customer.getCustomer_Password());
+	        credential.setCustomer_status("false");
+	        credential.setCustomer_role("ROLE_CUSTOMER");
+	        sessionFactory.getCurrentSession().save(credential);
 	        return true;
 	       }
 	       catch(Exception e1)

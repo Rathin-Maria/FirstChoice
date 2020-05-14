@@ -57,6 +57,23 @@
 		</table>
 		</div>
 	   </c:when>
+	   
+	   	<c:when test="${sessionScope.userrole}">
+	<div class="theader">
+		<table>
+			<tr>
+			    <th><a href="${cr }/home"target="_self">Home</a></th>
+				<th><a href="${cr }/aboutus" target="_self">About Us</a></th>
+				<th><a href="${cr }/contactus" target="_self">Contact Us</a></th>
+				<th><a href="${cr }/register"  target="_self" >Register</a></th>
+				<th><a href="${cr }/allproducts" target="_self">All Products</a></th>
+				<th> Hi ${sessionScope.username}</th>
+				<th><a href="logout" target="_self">Logout</a></th>
+			</tr>
+		</table>
+		</div>
+	   </c:when>
+	   
 		<c:otherwise>
 		<div class="theader">
 		<table>

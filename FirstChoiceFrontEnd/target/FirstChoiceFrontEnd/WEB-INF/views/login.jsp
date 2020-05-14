@@ -98,18 +98,18 @@
     <form action="perform_login" method="post"> 
     <c:if test="${success}">
 		<div class="alert alert-success">
-			<strong>Success!</strong>${message}
+			<strong>${message}</strong>
 		</div>
 	</c:if>
 	<c:if test="${error1}">
 		<div class="alert alert-danger">
-			<strong>Error!</strong>${message}
+			<strong>${message}</strong>
 		</div>
 	</c:if>
 	
 	<c:if test="${error2}">
 		<div class="alert alert-warning">
-			<strong>Warning!</strong>${message}
+			<strong>${message}</strong>
 		</div>
 	</c:if>
         <div class="imgcontainer"> 

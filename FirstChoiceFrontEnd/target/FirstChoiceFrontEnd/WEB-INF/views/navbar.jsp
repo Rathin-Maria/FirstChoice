@@ -38,6 +38,9 @@
 </head>
 <body>
 
+	
+	<c:choose>
+	<c:when test="${sessionScope.adminrole}">
 	<div class="theader">
 		<table>
 			<tr>
@@ -45,13 +48,32 @@
 				<th><a href="${cr }/aboutus" target="_self">About Us</a></th>
 				<th><a href="${cr }/contactus" target="_self">Contact Us</a></th>
 				<th><a href="${cr }/register"  target="_self" >Register</a></th>
-				<th><a href="login" target="_self">Login</a></th>
 				<th><a href="${cr }/allproducts" target="_self">All Products</a></th>
 				<th><a href="${cr }/admin/category" target="_self">Manage Category</a></th>
 				<th><a href="${cr }/admin/products" target="_self">Manage Products</a></th>
+				<th> Hi ${sessionScope.username}</th>
+				<th><a href="logout" target="_self">Logout</a></th>
 			</tr>
 		</table>
-	</div>
+		</div>
+	   </c:when>
+		<c:otherwise>
+		<div class="theader">
+		<table>
+		      <tr>
+			    <th><a href="${cr }/home"target="_self">Home</a></th>
+				<th><a href="${cr }/aboutus" target="_self">About Us</a></th>
+				<th><a href="${cr }/contactus" target="_self">Contact Us</a></th>
+				<th><a href="${cr }/register"  target="_self" >Register</a></th>
+				<th><a href="login" target="_self">Login</a></th>
+				<th><a href="${cr }/allproducts" target="_self">All Products</a></th>
+			</tr>
+			</table>
+		</div>
+		</c:otherwise>
+	
+		</c:choose>
+
 
 	<p style="margin-top:3px;white-space:nowrap;margin-bottom:0px;width:100%;font-family:algerian;font-size:75px;color:green;text-align:center;">
     <img src="${cr }/img/logo.png" alt="LOGO" style="float:center;width:70px;height:65px;"><i>First Choice Retails</i></p>

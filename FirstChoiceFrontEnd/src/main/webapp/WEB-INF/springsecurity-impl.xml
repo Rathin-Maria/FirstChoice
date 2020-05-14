@@ -36,12 +36,11 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="admin" password="admin"
-					authorities="ROLE_ADMIN" />
-				<security:user name="cust" password="cust"
-					authorities="ROLE_CUSTOMER" />
-			</security:user-service>
+			
+			<security:jdbc-user-service data-source-ref="myDataSource"
+			users-by-username-query="select customer_Email, customer_Password, customer_Status from CustomerCredentials where customer_Email=?"
+			authorities-by-username-query="select customer_Email, customer_Role from CustomerCredentials where customer_Email=?"/>
+			
 		</security:authentication-provider>
 	</security:authentication-manager>
 </beans>

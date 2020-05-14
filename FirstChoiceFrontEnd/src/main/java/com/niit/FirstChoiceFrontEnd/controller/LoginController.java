@@ -1,22 +1,25 @@
 package com.niit.FirstChoiceFrontEnd.controller;
 
-import java.util.Collection;
-import java.util.Iterator;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.niit.FirstChoiceBackEnd.DAO.ICustomerDAO;
+import com.niit.FirstChoiceBackEnd.Model.Customer;
 
 
 @Controller
 public class LoginController 
 {
+	
+	@Autowired
+	ICustomerDAO customer_dao;
 
 	@RequestMapping("/login")
 	  String loginPage(@RequestParam(value = "error", required=false ) boolean error , Model model)
@@ -53,6 +56,14 @@ public class LoginController
 			session.setAttribute("username", user.toUpperCase());
 			session.setAttribute("adminrole", true);
 			
+		}
+		else
+		{
+			
+			Customer customer = customer_dao.selectOneCustomer(user);
+			session.setAttribute("username", customer.getCustomer_Name().toUpperCase());
+			session.setAttribute("adminrole", false);
+			session.setAttribute("userrole", true);
 		}
 		
 		return "index";

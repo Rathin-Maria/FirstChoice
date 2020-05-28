@@ -66,20 +66,32 @@ font-style: oblique;
 											Stock:<span class="mytext">  In Stock</span>
 										</p>
 									</c:if>
-									<c:if test="${p.product_Stock < 5 }">
+									<c:if test="${p.product_Stock < 5 &&  p.product_Stock > 0}">
 										<p class="card-text">
 											Stock:<span class="mytext">  Only  ${p.product_Stock}  Available</span>
+										</p>
+									</c:if>
+										<c:if test="${p.product_Stock == 0 }">
+										<p class="card-text">
+										<span class="mytext">  Out of Stock</span>
 										</p>
 									</c:if>
 								</div>
 
 							<div class="row">
+							   <c:if test="${p.product_Stock > 0 }">
 								<div class="col-6">
-									<a href="" class="btn btn-success">Add to cart</a>
+									<a href="${cr }/addtocart?productid=${p.product_Id}" class="btn btn-success">Add to cart</a>
 								</div>
 								<div class="col-6">
 									<a href="${cr }/productdetails?productid=${p.product_Id}" class="btn btn-warning">View Details</a>
 								</div>
+								</c:if>
+								 <c:if test="${p.product_Stock == 0 }">
+								<div class="col-12">
+									<a href="${cr }/allproducts" class="btn btn-danger">Out of Stock</a>
+								</div>
+								</c:if>
 							</div>
 						</div>
 					</div>

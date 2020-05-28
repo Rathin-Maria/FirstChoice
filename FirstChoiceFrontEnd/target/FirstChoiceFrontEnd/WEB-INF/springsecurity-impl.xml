@@ -15,7 +15,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	<security:http auto-config="true">
 	
 		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-				<security:intercept-url pattern="/customer/**" access="hasRole('ROLE_CUSTOMER')" />
+		<security:intercept-url pattern="/user/**" access="hasRole('ROLE_CUSTOMER')" />
 		
 		<security:intercept-url pattern="/**" access="permitAll" />
 		<!-- pattern say the url type to  restrict
@@ -36,10 +36,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="admin" password="admin"
-					authorities="ROLE_ADMIN" />
-			</security:user-service>
+			
 			<security:jdbc-user-service data-source-ref="myDataSource"
 			users-by-username-query="select customer_Email, customer_Password, customer_Status from CustomerCredentials where customer_Email=?"
 			authorities-by-username-query="select customer_Email, customer_Role from CustomerCredentials where customer_Email=?"/>

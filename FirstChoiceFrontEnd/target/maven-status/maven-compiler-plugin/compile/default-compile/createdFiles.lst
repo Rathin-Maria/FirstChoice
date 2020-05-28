@@ -1,5 +1,7 @@
+com\niit\FirstChoiceFrontEnd\controller\CustomerController.class
+com\niit\FirstChoiceFrontEnd\controller\ProductController.class
+com\niit\FirstChoiceFrontEnd\controller\AddressController.class
 com\niit\FirstChoiceFrontEnd\controller\CategoryController.class
 com\niit\FirstChoiceFrontEnd\controller\HomeController.class
 com\niit\FirstChoiceFrontEnd\controller\LoginController.class
-com\niit\FirstChoiceFrontEnd\controller\CustomerController.class
-com\niit\FirstChoiceFrontEnd\controller\ProductController.class
+com\niit\FirstChoiceFrontEnd\controller\CartController.class

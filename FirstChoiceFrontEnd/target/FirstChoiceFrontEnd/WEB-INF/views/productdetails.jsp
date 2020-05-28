@@ -183,11 +183,20 @@ transform
 			</aside>
 			<c:if test="${product.product_Stock != 0}">
 			<aside class="col-sm-3">
-				<div class="row" style="padding-top: 50%;">
-			  <a href="addToCart?pid=${product.product_Id}"
-						class="btn btn-lg color-box-waanbii" type="button"> <i
-						class="fa fa-shopping-cart"></i> Add to Cart
-					</a>
+				<div class="row" style="padding-top: 20%;">
+				
+				<form action="${cr }/addtocart" method="post">
+                           
+                                
+                                <input type="number"    style="width: 160px;"  min="1" max="5" id="quantity" name="quantity">
+                                <input type="hidden" id="productid" name="productid" value="${product.product_Id}">
+                                   <br>
+                                   
+                                   <br>
+                                 <button type="submit"  class="btn btn-lg color-box-waanbii" > <i class="fa fa-shopping-cart"></i> Add to Cart </button>
+                               
+                    </form> 
+                           
 				</div>
 			</aside>
 			</c:if>

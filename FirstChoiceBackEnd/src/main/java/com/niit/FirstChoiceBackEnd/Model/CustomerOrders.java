@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -13,7 +15,9 @@ import javax.persistence.TemporalType;
 public class CustomerOrders 
 {
 	@Id
-	@Column(nullable = false,unique =true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int dummy_Id;
+	@Column(nullable = false)
 	String order_Id;
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
@@ -26,6 +30,14 @@ public class CustomerOrders
 	Address customer_Address;
 	@Column(nullable = false)
 	float order_Total;
+	@Column(nullable = false)
+	int product_Quantity;
+	public int getDummy_Id() {
+		return dummy_Id;
+	}
+	public void setDummy_Id(int dummy_Id) {
+		this.dummy_Id = dummy_Id;
+	}
 	public String getOrder_Id() {
 		return order_Id;
 	}
@@ -62,7 +74,12 @@ public class CustomerOrders
 	public void setOrder_Total(float order_Total) {
 		this.order_Total = order_Total;
 	}
-	
-	
+	public int getProduct_Quantity() {
+		return product_Quantity;
+	}
+	public void setProduct_Quantity(int product_Quantity) {
+		this.product_Quantity = product_Quantity;
+	}
+
 	
 }

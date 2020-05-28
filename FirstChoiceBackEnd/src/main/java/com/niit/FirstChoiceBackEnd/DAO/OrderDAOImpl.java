@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 import com.niit.FirstChoiceBackEnd.Model.Customer;
+import com.niit.FirstChoiceBackEnd.Model.CustomerOrders;
 
 @Repository("order_dao") 
 @Transactional 
@@ -19,7 +20,7 @@ public class OrderDAOImpl implements IOrderDAO {
 	 SessionFactory sessionFactory;
 	
 	@Override
-	public boolean addOrder(Order order)
+	public boolean addOrder(CustomerOrders order)
 	{
 		try
 	    {
@@ -33,7 +34,7 @@ public class OrderDAOImpl implements IOrderDAO {
 	}
 
 	@Override
-	public boolean updateOrder(Order order) 
+	public boolean updateOrder(CustomerOrders order)
 	{
 		try
 	    {
@@ -47,7 +48,7 @@ public class OrderDAOImpl implements IOrderDAO {
 	}
 
 	@Override
-	public boolean deleteOrder(Order order) 
+	public boolean deleteOrder(CustomerOrders order)
 	{
 		try
 	    {
@@ -61,11 +62,11 @@ public class OrderDAOImpl implements IOrderDAO {
 	}
 
 	@Override
-	public ArrayList<Order> selectAllOrder(Customer customer_Details)
+	public ArrayList<CustomerOrders> selectAllOrder(Customer customer_Details)
 	{
 		 try
 	      {
-	        ArrayList<Order> order_list = (ArrayList<Order>)sessionFactory.getCurrentSession().createCriteria(Order.class).add(Restrictions.eq("customer_Details",customer_Details)).list();
+	        ArrayList<CustomerOrders> order_list = (ArrayList<CustomerOrders>) sessionFactory.getCurrentSession().createCriteria(CustomerOrders.class).add(Restrictions.eq("customer_Details",customer_Details)).list();
 	        return order_list;
 	      }
 	    catch(Exception e)
@@ -76,11 +77,11 @@ public class OrderDAOImpl implements IOrderDAO {
 	}
 
 	@Override
-	public Order selectOneOrder(String order_Id) 
+	public ArrayList<CustomerOrders>  selectOneOrder(String order_Id) 
 	{
 		 try
 	     {
-	      Order  order = (Order)sessionFactory.getCurrentSession().createCriteria (Order.class).add(Restrictions.eq("order_Id",order_Id)).uniqueResult();
+		  ArrayList<CustomerOrders> order = (ArrayList<CustomerOrders>)sessionFactory.getCurrentSession().createCriteria (CustomerOrders.class).add(Restrictions.eq("order_Id",order_Id)).list();
 	      return order;
 	     }
 	    catch(Exception e)
@@ -88,5 +89,6 @@ public class OrderDAOImpl implements IOrderDAO {
 	    return null;
 	    }
 	}
+
 
 }
